@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SVG Chart from Angular Directive</title>
+    
+    <link rel="stylesheet" href="style.css" />
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="chart.dir.js"></script>
+</head>
+<body ng-app="svgApp" ng-controller="svgController">
+    
+    <div class="container">
+        
+        <h3>Compare the effects of interest rate on the future value of a savings plan</h3>
+        
+        <form>
+            <label>Payment: 
+                <input style="width: 100px;"
+                       type="number"
+                       ng-model="fireState.FVpmt" />
+            </label>
+            
+            <label>Present Value: 
+                <input style="width: 120px;"
+                       type="number"
+                       ng-model="fireState.FVpv" />
+            </label>
+            
+            <label>Number of Years: 
+                <input style="width: 50px;"
+                       type="number"
+                       ng-model="fireState.FVnper" />
+            </label>
+            <br />
+            
+            <div class="icon--rate1"></div>
+            <label> Rate 1: <input style="width: 100px;"
+                                   type="number"
+                                   min="0.001" step="0.001"
+                                   ng-model="fireState.FVrate" />
+            </label>
+            
+            <div class="icon--rate2"></div>
+            <label>Rate 2: <input style="width: 100px;"
+                                  type="number"
+                                  min="0.001" step="0.001"
+                                  ng-model="requiredRate" />
+            </label>
+        
+        </form>
+        <br />
+        
+        <fire-calc-chart fire-state="fireState" required-rate="requiredRate">
+        </fire-calc-chart>
+    
+    </div>
+
+</body>
+</html>
