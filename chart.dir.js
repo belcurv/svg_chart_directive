@@ -5,15 +5,14 @@
 
         .directive('fireCalcChart', ['ns', function (ns) {
 
-            // initial DDO template
             var link = function (scope, elem, attrs) {
 
                 // define chart layout attributes
-                var width = 600,
-                    height = 400,
+                var width   = 600,
+                    height  = 400,
                     xMargin = 90,
                     yMargin = 20,
-                    spacer = 10,
+                    spacer  = 10,
 
                     // init empty coord point containers
                     points1 = [],
